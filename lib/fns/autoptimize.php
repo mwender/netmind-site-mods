@@ -7,7 +7,7 @@ namespace NetmindSiteMods\autoptimize;
  */
 function do_not_optimize() {
   // Array of pages we don't want to autoptize
-  $do_not_optimize = ['course','my-account','no-access'];
+  $do_not_optimize = ['course','my-account','no-access','knowledge-center'];
 
   foreach ($do_not_optimize as $page ) {
     if ( strpos( $_SERVER['REQUEST_URI'], $page ) )
