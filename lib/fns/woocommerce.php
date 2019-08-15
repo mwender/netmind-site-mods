@@ -114,7 +114,7 @@ add_filter( 'woocommerce_subcategory_count_html', __NAMESPACE__ . '\\hide_catego
  * Adds a Register form note.
  */
 function add_register_form_note(){
-    echo '<p><strong>Important:</strong> If you are creating an account, please note:</p><ul style="line-height: 1.25rem; margin: 1rem 0; padding-bottom: 0;"><li>The email address you enter above must match the email address we have on file with your certification records.</li></ul><p>If you create your account and find that your certification records are not published (classes/exams, badge and certification status), please <a href="mailto:certification@b2ttraining.com">email us</a> to update your primary email address to match your certification record associated address.</p>';
+    echo '<p><strong>Important:</strong> If you are creating an account, please note:</p><ul style="line-height: 1.25rem; margin: 1rem 0; padding-bottom: 0;"><li>The email address you enter above must match the email address we have on file with your certification records.</li></ul><p>If you create your account and find that your certification records are not published (classes/exams, badge and certification status), please <a href="mailto:administration@netmind.net">email us</a> to update your primary email address to match your certification record associated address.</p>';
 }
 add_action( 'woocommerce_register_form', __NAMESPACE__ . '\\add_register_form_note' );
 
