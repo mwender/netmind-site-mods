@@ -15,4 +15,5 @@
 require_once( 'lib/fns/admin.php' );
 require_once( 'lib/fns/amp.php' );
 require_once( 'lib/fns/autoptimize.php');
+require_once( 'lib/fns/pardot.php' );
 require_once( 'lib/fns/woocommerce.php' );
