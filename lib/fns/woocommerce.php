@@ -119,6 +119,22 @@ function add_register_form_note(){
 add_action( 'woocommerce_register_form', __NAMESPACE__ . '\\add_register_form_note' );
 
 /**
+ * Changes "Read more" to "View the Course"
+ *
+ * @param      string  $text   The text
+ *
+ * @return     string  Returns the filtered "Add to Cart" text.
+ */
+function custom_woocommerce_product_add_to_cart_text( $text ) {
+  if( 'Read more' == $text ) {
+    $text = __( 'View the Course', 'woocommerce' );
+  }
+
+  return $text;
+}
+add_filter( 'woocommerce_product_add_to_cart_text' , __NAMESPACE__ . '\\custom_woocommerce_product_add_to_cart_text' );
+
+/**
  * Reverses the order of reviews on WC Product pages.
  *
  * @param      array  $args{
