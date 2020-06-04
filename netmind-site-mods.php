@@ -12,11 +12,15 @@
  *
  * @package         Netmind_Site_Mods
  */
+define( 'NETMIND_DEV_ENV', stristr( site_url(), '.local' ) );
 
 // Your code starts here.
 require_once( 'lib/fns/admin.php' );
 require_once( 'lib/fns/amp.php' );
-require_once( 'lib/fns/autoptimize.php');
+require_once( 'lib/fns/autoptimize.php' );
 require_once( 'lib/fns/elementor.php' );
+require_once( 'lib/fns/enqueues.php' );
+require_once( 'lib/fns/knowledge-center.php' );
 require_once( 'lib/fns/pardot.php' );
+require_once( 'lib/fns/utilities.php' );
 require_once( 'lib/fns/woocommerce.php' );
