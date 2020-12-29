@@ -3,7 +3,7 @@
 **Tags:** elementor  
 **Requires at least:** 4.5  
 **Tested up to:** 5.6  
-**Stable tag:** 1.1.0  
+**Stable tag:** 1.1.1  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -48,6 +48,9 @@ The code in `lib/fns/autoptimize.php` excludes specified pages from optimization
 The code in `lib/fns/amp.php` prevents an empty 'srcset' attribute from appearing thereby preventing a common error when running an AMP page through a validation service.
 
 ## Changelog ##
+
+### 1.1.1 ###
+* BUGFIX: Checking for array inside `related_posts()`.
 
 ### 1.1.0 ###
 * Adding `filter` attribute to `[netmind_related_posts]` shortcode.

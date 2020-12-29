@@ -85,8 +85,10 @@ function related_posts( $atts ){
     $filters = ( stristr( $args['filter'], ',' ) )? explode( ',', $args['filter'] ) : [ $args['filter'] ];
     foreach ($filters as $taxonomy ) {
       $terms = get_the_terms( $post->ID, $taxonomy );
-      $term_ids = array_column( $terms, 'term_id' );
-      $query_args['tax_query'][] = [ 'taxonomy' => $taxonomy, 'terms' => implode(',', $term_ids ) ];
+      if( $terms ){
+        $term_ids = array_column( $terms, 'term_id' );
+        $query_args['tax_query'][] = [ 'taxonomy' => $taxonomy, 'terms' => implode(',', $term_ids ) ];
+      }
     }
   }
 
