@@ -2,6 +2,14 @@
 
 namespace NetmindSiteMods\pardot;
 
+/**
+ * Adds form fields to the `body` of the form submission.
+ *
+ * @param      array  $args     Arguments passed from the filter.
+ * @param      array  $record   The form submission.
+ *
+ * @return     array  The filtered arguments.
+ */
 function pardot_form_filter( $args, $record ){
   $form_name = $record->get_form_settings( 'form_name' );
   if( ! stristr( strtolower( $form_name ), 'pardot' ) )
@@ -18,6 +26,9 @@ function pardot_form_filter( $args, $record ){
 }
 add_filter( 'elementor_pro/forms/webhooks/request_args', __NAMESPACE__ . '\\pardot_form_filter', 10, 2 );
 
+/**
+ * Adds Pardot tracking to pages.
+ */
 function pardot_script(){
 ?>
 <script type="text/javascript">
