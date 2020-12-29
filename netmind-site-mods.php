@@ -13,6 +13,7 @@
  * @package         Netmind_Site_Mods
  */
 define( 'NETMIND_DEV_ENV', stristr( site_url(), '.local' ) );
+define( 'NETMIND_CSS_DIR', ( NETMIND_DEV_ENV )? 'css' : 'dist' );
 
 // Your code starts here.
 require_once( 'lib/fns/admin.php' );
@@ -22,6 +23,7 @@ require_once( 'lib/fns/elementor.php' );
 require_once( 'lib/fns/enqueues.php' );
 require_once( 'lib/fns/pardot.php' );
 require_once( 'lib/fns/utilities.php' );
+require_once( 'lib/fns/related-posts.php' );
 require_once( 'lib/fns/woocommerce.php' );
 
 
