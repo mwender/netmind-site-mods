@@ -8,7 +8,7 @@
     color: #4d4d4d;
     height: 3.75em;
 
-    /* Add ellipsis to second line */
+    /* Add ellipsis to third line */
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -28,7 +28,7 @@
     -webkit-box-orient: vertical;
   }
   .list-item{
-    padding: 0 8px;
+    padding: 0 16px 0 0;
   }
 
   .list-content{
@@ -79,45 +79,6 @@
 
       a{
         color: #fff;
-      }
-    }
-  }
-
-}
-
-/* Slider Nav/Dots */
-.slick-dots{
-  margin: 0;
-  padding: 0;
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-
-  li{
-    margin: 0 5px;
-    line-height: 0;
-
-    button{
-      background-color: #d5d6d7;
-      padding: 0;
-      border: none;
-      text-indent: -9999px;
-      width: 10px;
-      height: 10px;
-
-      &:hover{
-        border: none;
-        background-color: #009ee0;
-      }
-      &:focus{
-        border: none;
-        outline: none;
-      }
-    }
-
-    &.slick-active{
-      button{
-        background-color: #222;
       }
     }
   }
