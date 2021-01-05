@@ -13,7 +13,7 @@ This plugin provides upgrade tolerant modifications to the Netmind Elementor-pow
 
 Display a listing of "related posts" in a Slick JS carousel.
 
-Usage: `[netmind_related_posts filter="(optional)"]`
+Usage: `[netmind_related_posts numberposts="30" orderby="date" order="DESC" taxonomy="null" term="null"]`
 
 ```
 /**
