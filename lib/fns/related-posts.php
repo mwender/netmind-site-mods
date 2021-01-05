@@ -54,10 +54,13 @@ function get_post_html( $data = [] ){
  *     @type int $numberposts Number of posts to display. Default 30.
  *     @type str $orderby     The field to order the results by. Default 'date'.
  *     @type str $order       ASC or DESC. Default DESC.
- *     @type str $filter      Comma separated list of taxonomies used to filter
+ *     @type str $taxonomy    Comma separated list of taxonomies used to filter
  *                            the results. Used on a single post view, these
  *                            will filter the results by taxonomy terms of the
  *                            current post. Default: null.
+ *     @type str $term        Comma separated list of terms to filter the results.
+ *                            Must be used with one, and only one, taxonomy.
+ *                            Default: null.
  * }
  *
  * @return     string  HTML for the Related Posts display.
@@ -68,6 +71,8 @@ function related_posts( $atts ){
     'orderby'     => 'date',
     'order'       => 'DESC',
     'filter'      => null,
+    'taxonomy'    => null,
+    'term'       => null,
   ], $atts );
 
   $alert = \netmind_get_alert([
@@ -80,10 +85,32 @@ function related_posts( $atts ){
     'numberposts' => $args['numberposts'],
   ];
 
-  if( ! is_null( $args['filter'] ) && is_single() ){
+  // If we have ONE taxonomy and term is set, we can select
+  // related posts which have the same taxonomy term.
+  if(
+    ! is_null( $args['term'] ) &&
+    ! is_null( $args['taxonomy'] )
+  ){
+    if( stristr( $args['taxonomy'], ',' ) ){
+      return '<p>ERROR: When using the <code>term</code> attribute, you can not have multiple taxonomies. Either remove your <code>term(s)</code> to filter by multiple taxonomies, or set your <code>taxonomy</code> attribute to one taxonomy.</p>';
+    }
+
+    $term_ids = [];
+    $terms = ( stristr( $args['term'], ',' ) )? explode( ',', $args['term'] ) : [ $args['term'] ];
+    foreach( $terms as $slug ){
+      $term = get_term_by( 'slug', $slug, $args['taxonomy'] );
+      if( $term )
+        $term_ids[] = $term->term_id;
+    }
+    $query_args['tax_query'][] = [ 'taxonomy' => $args['taxonomy'], 'terms' => implode(',', $term_ids ) ];
+  } else if(
+    is_null( $args['term'] ) &&
+    ! is_null( $args['taxonomy'] ) &&
+    is_single()
+  ){
     global $post;
-    $filters = ( stristr( $args['filter'], ',' ) )? explode( ',', $args['filter'] ) : [ $args['filter'] ];
-    foreach ($filters as $taxonomy ) {
+    $taxonomies = ( stristr( $args['taxonomy'], ',' ) )? explode( ',', $args['taxonomy'] ) : [ $args['taxonomy'] ];
+    foreach ($taxonomies as $taxonomy ) {
       $terms = get_the_terms( $post->ID, $taxonomy );
       if( $terms ){
         $term_ids = array_column( $terms, 'term_id' );
@@ -91,6 +118,7 @@ function related_posts( $atts ){
       }
     }
   }
+
 
   $posts = get_posts( $query_args );
   if( $posts ){
