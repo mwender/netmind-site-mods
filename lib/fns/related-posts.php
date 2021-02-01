@@ -17,6 +17,8 @@ function get_post_html( $data = [] ){
 
   $html[] = '<div class="related-posts">';
   foreach( $data as $item ){
+    $resource_type = ( array_key_exists( 'terms', $item ) )? $item['terms']['resource_type'] : '' ;
+    $knowledge_area = ( array_key_exists( 'terms', $item ) )? $item['terms']['knowledge_area'] : '' ;
 
     $listItem = str_replace([
       '{resource_type}',
@@ -26,10 +28,10 @@ function get_post_html( $data = [] ){
       '{permalink}',
       '{thumbnail}'
     ], [
-      $item['terms']['resource_type'],
-      strtolower( $item['terms']['resource_type'] ),
+      $resource_type,
+      strtolower( $resource_type ),
       $item['title'],
-      $item['terms']['knowledge_area'],
+      $knowledge_area,
       $item['permalink'],
       $item['thumbnail'],
     ], $template );
@@ -145,9 +147,16 @@ function related_posts( $atts ){
     } // foreach
   }
 
-  wp_enqueue_style( 'relatedposts' );
-  wp_enqueue_script( 'relatedposts' );
-  $html = get_post_html( $data );
+  $html = '';
+  //$edit_mode = \Elementor\Plugin::$instance->editor->is_edit_mode();
+  $edit_mode = ( strpos($_SERVER['REQUEST_URI'], 'elementor') !== false )? true : false ;
+  if( $edit_mode ){
+    $html = '<img src="' . plugin_dir_url( __FILE__ ) . '/../../img/related-posts-sample.jpg" />';
+  } else {
+    wp_enqueue_style( 'relatedposts' );
+    wp_enqueue_script( 'relatedposts' );
+    $html = get_post_html( $data );
+  }
 
   return $html;
 }
