@@ -72,7 +72,6 @@ function related_posts( $atts ){
     'numberposts' => 30,
     'orderby'     => 'date',
     'order'       => 'DESC',
-    'filter'      => null,
     'taxonomy'    => null,
     'term'       => null,
   ], $atts );
