@@ -87,7 +87,7 @@ function related_posts( $atts ){
         'date'      => $post->post_date,
         'thumbnail' => get_the_post_thumbnail_url( $post->ID, 'large' ),
       ];
-      $taxonomies = ['knowledge_area','resource_type'];
+      $taxonomies = ['knowledge_area','resource_type','news_category'];
       foreach( $taxonomies as $taxonomy ){
         $terms = get_the_terms( $post->ID, $taxonomy ); // wp_get_post_terms
         if( $terms ){

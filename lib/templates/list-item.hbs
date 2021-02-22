@@ -1,12 +1,18 @@
 <div class="related-posts">
   {{#each items}}
-    <div class="list-item {{tolowercase terms.resource_type}}">
+    <div class="list-item {{tolowercase terms.resource_type}} {{tolowercase terms.news_category}}">
       <a href="{{permalink}}">
-        <div class="list-content post {{tolowercase terms.resource_type}}">
+        <div class="list-content post {{tolowercase terms.resource_type}} {{tolowercase terms.news_category}}">
           <div class="overlay" style="background-image: url({{thumbnail}})">
-            <div class="ribbon {{tolowercase terms.resource_type}}"></div>
+            <div class="ribbon {{tolowercase terms.resource_type}} {{tolowercase terms.news_category}}"></div>
             <div class="blue-overlay"></div>
-            <div class="category-overlay">{{terms.resource_type}}</div>
+            <div class="category-overlay">
+            {{#if terms.news_category}}
+              {{terms.news_category}}
+            {{else}}
+              {{terms.resource_type}}
+            {{/if}}
+            </div>
           </div>
           <p class="meta">{{meta}}</p>
           <h3 class="title">{{title}}</h3>
