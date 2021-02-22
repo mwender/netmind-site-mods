@@ -33,13 +33,6 @@ function related_posts( $atts ){
     'term'        => null,
   ], $atts );
 
-  $alert = \netmind_get_alert([
-    'type' => 'info',
-    'title' => '`netmind_related_posts` shortcode',
-    'description' => 'The <code>netmind_related_posts</code> shortcode will be output here.'
-  ]);
-  return $alert;
-
   $query_args = [
     'numberposts' => $args['numberposts'],
     'post_type'   => $args['post_type'],
