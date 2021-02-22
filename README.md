@@ -15,6 +15,7 @@ Display a listing of Netmind Instructor CPTs.
 
 Usage: `[netmind_instructors taxonomy="best_practice" term="safe" /]`
 
+```
 /**
  * Displays a listing of Netmind Instructor CPTs.
  *
@@ -42,6 +43,7 @@ Usage: `[netmind_instructors taxonomy="best_practice" term="safe" /]`
  *
  * @return     string  ( description_of_the_return_value )
  */
+ ```
 
 # "Related Posts" Shortcode
 
