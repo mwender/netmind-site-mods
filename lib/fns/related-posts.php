@@ -56,6 +56,7 @@ function get_post_html( $data = [] ){
  *     @type int $numberposts Number of posts to display. Default 30.
  *     @type str $orderby     The field to order the results by. Default 'date'.
  *     @type str $order       ASC or DESC. Default DESC.
+ *     @type str $post_type   The WordPress `post_type`. Default `post`.
  *     @type str $taxonomy    Comma separated list of taxonomies used to filter
  *                            the results. Used on a single post view, these
  *                            will filter the results by taxonomy terms of the
@@ -72,8 +73,9 @@ function related_posts( $atts ){
     'numberposts' => 30,
     'orderby'     => 'date',
     'order'       => 'DESC',
+    'post_type'   => 'post',
     'taxonomy'    => null,
-    'term'       => null,
+    'term'        => null,
   ], $atts );
 
   $alert = \netmind_get_alert([
@@ -84,6 +86,7 @@ function related_posts( $atts ){
 
   $query_args = [
     'numberposts' => $args['numberposts'],
+    'post_type'   => $args['post_type'],
   ];
 
   // If we have ONE taxonomy and term is set, we can select
