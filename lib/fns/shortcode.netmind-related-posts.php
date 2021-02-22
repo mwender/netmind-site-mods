@@ -96,6 +96,7 @@ function related_posts( $atts ){
       }
       $x++;
     } // foreach
+    wp_reset_postdata(); // Restore $post global
   }
 
   $html = '';

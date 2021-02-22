@@ -28,6 +28,7 @@ require_once( 'lib/fns/enqueues.php' );
 require_once( 'lib/fns/handlebars.php' );
 require_once( 'lib/fns/pardot.php' );
 require_once( 'lib/fns/utilities.php' );
+require_once( 'lib/fns/shortcode.netmind-instructors.php' );
 require_once( 'lib/fns/shortcode.netmind-related-posts.php' );
 require_once( 'lib/fns/woocommerce.php' );
 

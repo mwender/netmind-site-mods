@@ -3,11 +3,45 @@ Contributors: TheWebist
 Tags: elementor
 Requires at least: 4.5
 Tested up to: 5.6
-Stable tag: 1.1.3
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 This plugin provides upgrade tolerant modifications to the Netmind Elementor-powered website.
+
+# "Instructors" Shortcode
+
+Display a listing of Netmind Instructor CPTs.
+
+Usage: `[netmind_instructors taxonomy="best_practice" term="safe" /]`
+
+/**
+ * Displays a listing of Netmind Instructor CPTs.
+ *
+ * When using the taxonomy and term parameters with multiple
+ * taxonomies and terms, you must specify your taxonomies
+ * and terms in the same order within the attribute so that
+ * the corresponding taxonomies and terms will be used with
+ * one another in the query. Additional, due to this
+ * constraint, you may only use one term per taxonomy.
+ *
+ * @param      array  $atts   {
+ *     Optional. An array of arguments.
+ *
+ *     @type int $columns     Currently not working due to Elementor CSS class
+ *                            names in the underlying Handlebars template. Default 4.
+ *     @type int $numberposts Limit the number of Instructors displayed. Default -1 (display all).
+ *     @type str $orderby     Accepts any standard `orderby` parameters. Additionally accepts
+ *                            `lastname` to order by the "Last Name" meta field.
+ *     @type str $order       Can be `ASC` or `DESC`. Default ASC.
+ *     @type str $taxonomy    Comma separated list of taxonomies to query by. Example
+ *                            "best_practice". Default null.
+ *     @type str $term        Comma separated list of terms to use with the taxonomy attribute.
+ *                            Default null.
+ * }
+ *
+ * @return     string  ( description_of_the_return_value )
+ */
 
 # "Related Posts" Shortcode
 
@@ -54,6 +88,7 @@ The code in `lib/fns/amp.php` prevents an empty 'srcset' attribute from appearin
 == Changelog ==
 
 = 1.2.0 =
+* Adding `[netmind_instructors/]` shortcode.
 * Converting template handling to Handlebars.
 * Adding `post_type` attribute to `[netmind_related_posts/]`.
 

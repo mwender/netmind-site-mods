@@ -1,0 +1,39 @@
+<style>
+.instructors .elementor-image-box-description{
+  font-size: 16px;
+}
+.instructors .elementor-image-box-img img{
+  width: 154px;
+  height: 154px;
+  border-radius: 50%;
+}
+</style>
+{{#each rows}}
+<section class="elementor-section elementor-top-section elementor-element elementor-element-39c098ca elementor-section-boxed elementor-section-height-default elementor-section-height-default">
+  <div class="elementor-container elementor-column-gap-default">
+    <div class="elementor-row instructors">
+      {{#each instructors}}
+        <div class="elementor-column elementor-col-25 elementor-top-column elementor-element" data-element_type="column">
+          <div class="elementor-column-wrap elementor-element-populated">
+            <div class="elementor-widget-wrap">
+              <div class="elementor-element elementor-position-top elementor-vertical-align-top elementor-widget elementor-widget-image-box" data-element_type="widget" data-widget_type="image-box.default">
+                <div class="elementor-widget-container">
+                  <div class="elementor-image-box-wrapper">
+                    <figure class="elementor-image-box-img">
+                      <img src="{{thumbnail}}" class="attachment-full size-full" alt="{{name}}" loading="lazy" {{srcset}}>
+                    </figure>
+                    <div class="elementor-image-box-content">
+                      <h4 class="elementor-image-box-title">{{name}}</h4>
+                      <p class="elementor-image-box-description">{{title}}</p>
+                    </div><!-- .elementor-image-box-content -->
+                  </div><!-- .elementor-image-box-wrapper -->
+                </div><!-- .elementor-widget-container -->
+              </div><!-- .elementor-widget-image-box -->
+            </div><!-- .elementor-widget-wrap -->
+          </div><!-- .elementor-column-wrap.elementor-element-populated -->
+        </div><!-- .elementor-column.elementor-col-25.elementor-top-column.elementor-element -->
+      {{/each}}
+    </div><!-- .elementor-row.instructors -->
+  </div><!-- .elementor-container.elementor-column-gap-default -->
+</section>
+{{/each}}
