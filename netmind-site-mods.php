@@ -6,14 +6,18 @@
  * Author URI:      https://mwender.com
  * Text Domain:     netmind-site-mods
  * Domain Path:     /languages
- * Version:         1.1.3
+ * Version:         1.2.0
  * GitHub Plugin URI: mwender/netmind-site-mods
  * GitHub Plugin URI: https://github.com/mwender/netmind-site-mods
  *
  * @package         Netmind_Site_Mods
  */
+define( 'NETMIND_SITE_MOD_DIR', dirname( __FILE__ ) );
 define( 'NETMIND_DEV_ENV', stristr( site_url(), '.local' ) );
 define( 'NETMIND_CSS_DIR', ( NETMIND_DEV_ENV )? 'css' : 'dist' );
+
+// Load Composer dependencies
+require_once('vendor/autoload.php');
 
 // Your code starts here.
 require_once( 'lib/fns/admin.php' );
@@ -21,9 +25,10 @@ require_once( 'lib/fns/amp.php' );
 require_once( 'lib/fns/autoptimize.php' );
 require_once( 'lib/fns/elementor.php' );
 require_once( 'lib/fns/enqueues.php' );
+require_once( 'lib/fns/handlebars.php' );
 require_once( 'lib/fns/pardot.php' );
 require_once( 'lib/fns/utilities.php' );
-require_once( 'lib/fns/related-posts.php' );
+require_once( 'lib/fns/shortcode.netmind-related-posts.php' );
 require_once( 'lib/fns/woocommerce.php' );
 
 

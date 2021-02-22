@@ -3,51 +3,6 @@
 namespace NetmindSiteMods\relatedposts;
 
 /**
- * Gets the post html.
- *
- * @param      array   $data   The data
- *
- * @return     string  The post html.
- */
-function get_post_html( $data = [] ){
-  $template = netmind_get_template( 'list-item' );
-
-  if( empty( $data ) )
-    return '<p>NO DATA!</p>';
-
-  $html[] = '<div class="related-posts">';
-  foreach( $data as $item ){
-    $resource_type = ( array_key_exists( 'terms', $item ) )? $item['terms']['resource_type'] : '' ;
-    $knowledge_area = ( array_key_exists( 'terms', $item ) )? $item['terms']['knowledge_area'] : '' ;
-
-    $listItem = str_replace([
-      '{resource_type}',
-      '{resource_type_lc}',
-      '{title}',
-      '{meta}',
-      '{permalink}',
-      '{thumbnail}'
-    ], [
-      $resource_type,
-      strtolower( $resource_type ),
-      $item['title'],
-      $knowledge_area,
-      $item['permalink'],
-      $item['thumbnail'],
-    ], $template );
-
-    $html[] = $listItem;
-  }
-  $html[] = '</div>';
-  if( \Elementor\Plugin::$instance->editor->is_edit_mode() ){
-    $relatedposts_js = file_get_contents( plugin_dir_path( __FILE__ ) . '../js/relatedposts.js' );
-    $html[] = '<script type="text/javascript">' . $relatedposts_js . '</script>';
-  }
-
-  return implode( '', $html );
-}
-
-/**
  * Callback for the [netmind_related_posts /] shortcode.
  *
  * @param      array  $atts   {
@@ -83,6 +38,7 @@ function related_posts( $atts ){
     'title' => '`netmind_related_posts` shortcode',
     'description' => 'The <code>netmind_related_posts</code> shortcode will be output here.'
   ]);
+  return $alert;
 
   $query_args = [
     'numberposts' => $args['numberposts'],
@@ -157,7 +113,7 @@ function related_posts( $atts ){
   } else {
     wp_enqueue_style( 'relatedposts' );
     wp_enqueue_script( 'relatedposts' );
-    $html = get_post_html( $data );
+    $html = \NetmindSiteMods\handlebars\render_template( 'list-item', [ 'items' => $data ] );
   }
 
   return $html;

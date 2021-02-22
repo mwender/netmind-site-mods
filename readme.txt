@@ -54,6 +54,7 @@ The code in `lib/fns/amp.php` prevents an empty 'srcset' attribute from appearin
 == Changelog ==
 
 = 1.2.0 =
+* Converting template handling to Handlebars.
 * Adding `post_type` attribute to `[netmind_related_posts/]`.
 
 = 1.1.3 =
