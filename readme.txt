@@ -25,6 +25,7 @@ Usage: `[netmind_related_posts numberposts="30" orderby="date" order="DESC" taxo
  *     @type int $numberposts Number of posts to display. Default 30.
  *     @type str $orderby     The field to order the results by. Default 'date'.
  *     @type str $order       ASC or DESC. Default DESC.
+ *     @type str $post_type   The WordPress `post_type`. Default `post`.
  *     @type str $taxonomy    Comma separated list of taxonomies used to filter
  *                            the results. Used on a single post view, these
  *                            will filter the results by taxonomy terms of the
@@ -51,6 +52,9 @@ The code in `lib/fns/autoptimize.php` excludes specified pages from optimization
 The code in `lib/fns/amp.php` prevents an empty 'srcset' attribute from appearing thereby preventing a common error when running an AMP page through a validation service.
 
 == Changelog ==
+
+= 1.2.0 =
+* Adding `post_type` attribute to `[netmind_related_posts/]`.
 
 = 1.1.3 =
 * Removing `outline-style` for Related Posts clickable area.
