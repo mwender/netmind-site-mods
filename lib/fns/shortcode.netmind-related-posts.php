@@ -33,10 +33,14 @@ function related_posts( $atts ){
     'term'        => null,
   ], $atts );
 
+  $edit_mode = ( strpos($_SERVER['REQUEST_URI'], 'elementor') !== false )? true : false ;
+
   $query_args = [
     'numberposts' => $args['numberposts'],
     'post_type'   => $args['post_type'],
   ];
+  if( $edit_mode )
+    $query_args['numberposts'] = 3;
 
   // If we have ONE taxonomy and term is set, we can select
   // related posts which have the same taxonomy term.
@@ -100,15 +104,15 @@ function related_posts( $atts ){
   }
 
   $html = '';
-  //$edit_mode = \Elementor\Plugin::$instance->editor->is_edit_mode();
-  $edit_mode = ( strpos($_SERVER['REQUEST_URI'], 'elementor') !== false )? true : false ;
+
   if( $edit_mode ){
-    $html = '<img src="' . plugin_dir_url( __FILE__ ) . '/../../img/related-posts-sample.jpg" />';
+    $css = file_get_contents( NETMIND_SITE_MOD_DIR . '/lib/css/relatedposts.css' );
+    $html.= '<style>' . $css . '.list-item{width: 33%;padding: 0 8px;}.related-posts{display:flex;justify-content:space-between;}</style>';
   } else {
     wp_enqueue_style( 'relatedposts' );
     wp_enqueue_script( 'relatedposts' );
-    $html = \NetmindSiteMods\handlebars\render_template( 'list-item', [ 'items' => $data ] );
   }
+  $html.= \NetmindSiteMods\handlebars\render_template( 'list-item', [ 'items' => $data ] );
 
   return $html;
 }
