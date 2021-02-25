@@ -3,7 +3,7 @@
 **Tags:** elementor  
 **Requires at least:** 4.5  
 **Tested up to:** 5.6  
-**Stable tag:** 1.2.4  
+**Stable tag:** 1.2.5  
 **License:** GPLv2 or later  
 **License URI:** https://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -88,6 +88,9 @@ The code in `lib/fns/autoptimize.php` excludes specified pages from optimization
 The code in `lib/fns/amp.php` prevents an empty 'srcset' attribute from appearing thereby preventing a common error when running an AMP page through a validation service.
 
 ## Changelog ##
+
+### 1.2.5 ###
+* Adjusting `:focus` outline style to `thin dotted` for `[netmind_related_posts]` `div.list-item` elements.
 
 ### 1.2.4 ###
 * Setting `justify-content: center;` for Netmind Instructor rows.

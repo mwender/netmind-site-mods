@@ -31,6 +31,9 @@ use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return 
     
     $inary=is_array($in);
     return '<style>
+.elementor-row.instructors{
+  justify-content: center;
+}
 .instructors .elementor-image-box-description{
   font-size: 16px;
 }

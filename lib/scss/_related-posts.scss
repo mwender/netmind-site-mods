@@ -33,6 +33,9 @@
     a:active{
       outline-style: none;
     }
+    &:focus{
+      outline: thin dotted;
+    }
   }
 
   .list-content{
