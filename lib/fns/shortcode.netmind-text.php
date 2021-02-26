@@ -43,4 +43,4 @@ function netmind_text( $atts ){
 
   return $string;
 }
-add_action( 'netmind_text', __NAMESPACE__ . '\\netmind_text' );
+add_shortcode( 'netmind_text', __NAMESPACE__ . '\\netmind_text' );
