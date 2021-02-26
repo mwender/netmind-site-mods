@@ -3,7 +3,7 @@ Contributors: TheWebist
 Tags: elementor
 Requires at least: 4.5
 Tested up to: 5.6
-Stable tag: 1.2.5
+Stable tag: 1.3.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,35 @@ Usage: `[netmind_instructors taxonomy="best_practice" term="safe" /]`
  * @return     string  ( description_of_the_return_value )
  */
  ```
+
+# "Netmind Text" Shortcode
+
+Display the specified text string.
+
+Useage: `[netmind_text string="cookie-policy" lang="es"]`
+
+```
+/**
+ * Returns the specified text string.
+ *
+ * We use this shortcode for situations where we need to insert
+ * special text strings inside the WordPress text editor. Our
+ * original use-case was for inserting a link to the
+ * Cookiebot cookie dialog. This link required JavaScript to be
+ * added to the `href` attribute of the link, and since
+ * WordPress filters out JavaScript in the text editor, we
+ * created this shortcode to get around that limitation.
+ *
+ * @param      array  $atts {
+ *     Optional. An array of attributes.
+ *
+ *     @type string  $string A string for selecting the text string displayed. Default null.
+ *     @type string  $lang   The language of the returned text string. Default en.
+ * }
+ *
+ * @return     string  The text string.
+ */
+```
 
 # "Related Posts" Shortcode
 
@@ -88,6 +117,9 @@ The code in `lib/fns/autoptimize.php` excludes specified pages from optimization
 The code in `lib/fns/amp.php` prevents an empty 'srcset' attribute from appearing thereby preventing a common error when running an AMP page through a validation service.
 
 == Changelog ==
+
+= 1.3.0 =
+* Adding `[netmind_text]` shortcode for adding text strings to the WordPress editor.
 
 = 1.2.5 =
 * Adjusting `:focus` outline style to `thin dotted` for `[netmind_related_posts]` `div.list-item` elements.

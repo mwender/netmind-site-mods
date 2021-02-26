@@ -6,7 +6,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     netmind-site-mods
  * Domain Path:     /languages
- * Version:         1.2.5
+ * Version:         1.3.0
  * GitHub Plugin URI: mwender/netmind-site-mods
  * GitHub Plugin URI: https://github.com/mwender/netmind-site-mods
  *
@@ -30,6 +30,7 @@ require_once( 'lib/fns/pardot.php' );
 require_once( 'lib/fns/utilities.php' );
 require_once( 'lib/fns/shortcode.netmind-instructors.php' );
 require_once( 'lib/fns/shortcode.netmind-related-posts.php' );
+require_once( 'lib/fns/shortcode.netmind-text.php' );
 require_once( 'lib/fns/woocommerce.php' );
 
 
