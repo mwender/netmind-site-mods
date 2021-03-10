@@ -30,23 +30,48 @@ add_filter( 'elementor_pro/forms/webhooks/request_args', __NAMESPACE__ . '\\pard
  * Adds Pardot tracking to pages.
  */
 function pardot_script(){
-?>
-<script type="text/javascript">
-/* Pardot Tracking */
-piAId = '541272';
-piCId = '12208';
-piHostname = 'pi.pardot.com';
+  $locale = get_locale();
+
+  switch ($locale) {
+    case 'es_ES':
+      ?>
+<script type='text/javascript'>
+ piAId = '914921';
+ piCId = '';
+ piHostname = 'es.netmind.net';
 
 (function() {
-    function async_load(){
-        var s = document.createElement('script'); s.type = 'text/javascript';
-        s.src = ('https:' == document.location.protocol ? 'https://pi' : 'http://cdn') + '.pardot.com/pd.js';
-        var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
-    }
-    if(window.attachEvent) { window.attachEvent('onload', async_load); }
-    else { window.addEventListener('load', async_load, false); }
-})();
-</script>
-<?php
+ function async_load(){
+ var s = document.createElement('script'); s.type = 'text/javascript';
+ s.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + piHostname + '/pd.js';
+ var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+ }
+ if(window.attachEvent) { window.attachEvent('onload', async_load); }
+ else { window.addEventListener('load', async_load, false); }
+ })();
+ </script>
+      <?php
+      break;
+
+    default:
+      ?>
+<script type='text/javascript'>
+ piAId = '914921';
+ piCId = '';
+ piHostname = 'en.netmind.net';
+
+(function() {
+ function async_load(){
+ var s = document.createElement('script'); s.type = 'text/javascript';
+ s.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + piHostname + '/pd.js';
+ var c = document.getElementsByTagName('script')[0]; c.parentNode.insertBefore(s, c);
+ }
+ if(window.attachEvent) { window.attachEvent('onload', async_load); }
+ else { window.addEventListener('load', async_load, false); }
+ })();
+ </script>
+      <?php
+      break;
+  }
 }
 add_action( 'wp_footer', __NAMESPACE__ . '\\pardot_script', 999 );
