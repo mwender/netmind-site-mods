@@ -6,7 +6,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     netmind-site-mods
  * Domain Path:     /languages
- * Version:         1.3.2
+ * Version:         1.3.3
  * GitHub Plugin URI: mwender/netmind-site-mods
  * GitHub Plugin URI: https://github.com/mwender/netmind-site-mods
  *
@@ -15,6 +15,7 @@
 define( 'NETMIND_SITE_MOD_DIR', dirname( __FILE__ ) );
 define( 'NETMIND_DEV_ENV', stristr( site_url(), '.local' ) );
 define( 'NETMIND_CSS_DIR', ( NETMIND_DEV_ENV )? 'css' : 'dist' );
+define( 'NETMIND_LOCALE', get_locale() );
 
 // Load Composer dependencies
 require_once('vendor/autoload.php');
@@ -31,6 +32,7 @@ require_once( 'lib/fns/utilities.php' );
 require_once( 'lib/fns/shortcode.netmind-instructors.php' );
 require_once( 'lib/fns/shortcode.netmind-related-posts.php' );
 require_once( 'lib/fns/shortcode.netmind-text.php' );
+require_once( 'lib/fns/translations.php' );
 require_once( 'lib/fns/woocommerce.php' );
 
 
