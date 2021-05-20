@@ -118,6 +118,9 @@ The code in `lib/fns/amp.php` prevents an empty 'srcset' attribute from appearin
 
 == Changelog ==
 
+= 1.3.4 =
+* Add responsive from slider `js/relatedposts.js`
+
 = 1.3.3 =
 * Adding `lib/fns/translations.php` for translation related functions.
 * Translating "Title" to "Cargo" in Andalu Woo Courses plugin.
