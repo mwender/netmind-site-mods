@@ -12,7 +12,7 @@ namespace NetmindSiteMods\pardot;
  */
 function pardot_form_filter( $args, $record ){
   $form_name = $record->get_form_settings( 'form_name' );
-  if( ! stristr( strtolower( $form_name ), 'pardot' ) )
+  if( ! stristr( strtolower( $form_name ), 'pardot' ) || ! stristr( strtolower( $form_name ), 'newsletter' ) )
     return $args;
 
 	$raw_fields = $record->get( 'fields' );

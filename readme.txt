@@ -3,7 +3,7 @@ Contributors: TheWebist
 Tags: elementor
 Requires at least: 4.5
 Tested up to: 5.7
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -117,6 +117,9 @@ The code in `lib/fns/autoptimize.php` excludes specified pages from optimization
 The code in `lib/fns/amp.php` prevents an empty 'srcset' attribute from appearing thereby preventing a common error when running an AMP page through a validation service.
 
 == Changelog ==
+
+= 1.3.8 =
+* Updating `pardot_form_filter()` to allow for forms which have "newsletter" in their name.
 
 = 1.3.7 =
 * Enqueuing `slick.css`.
