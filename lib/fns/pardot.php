@@ -11,8 +11,16 @@ namespace NetmindSiteMods\pardot;
  * @return     array  The filtered arguments.
  */
 function pardot_form_filter( $args, $record ){
+
+  // Check form name to see if we should process it:
   $form_name = $record->get_form_settings( 'form_name' );
-  if( ! stristr( strtolower( $form_name ), 'pardot' ) || ! stristr( strtolower( $form_name ), 'newsletter' ) )
+  $process_form = false;
+  $strings_to_check = [ 'pardot', 'newsletter' ];
+  foreach( $strings_to_check as $string ){
+    if( stristr( strtolower( $form_name ), $string ) )
+      $process_form = true;
+  }
+  if( ! $process_form )
     return $args;
 
 	$raw_fields = $record->get( 'fields' );

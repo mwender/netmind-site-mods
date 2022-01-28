@@ -6,7 +6,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     netmind-site-mods
  * Domain Path:     /languages
- * Version:         1.3.8
+ * Version:         1.3.9
  * GitHub Plugin URI: mwender/netmind-site-mods
  * GitHub Plugin URI: https://github.com/mwender/netmind-site-mods
  *
