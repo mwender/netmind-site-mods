@@ -6,7 +6,7 @@
  * Author URI:      https://mwender.com
  * Text Domain:     netmind-site-mods
  * Domain Path:     /languages
- * Version:         1.4.1
+ * Version:         1.5.0
  * GitHub Plugin URI: mwender/netmind-site-mods
  * GitHub Plugin URI: https://github.com/mwender/netmind-site-mods
  *
@@ -22,6 +22,7 @@ require_once('vendor/autoload.php');
 
 // Your code starts here.
 require_once( 'lib/fns/admin.php' );
+require_once( 'lib/fns/akismet.php' );
 require_once( 'lib/fns/amp.php' );
 require_once( 'lib/fns/autoptimize.php' );
 require_once( 'lib/fns/elementor.php' );
@@ -34,7 +35,6 @@ require_once( 'lib/fns/shortcode.netmind-related-posts.php' );
 require_once( 'lib/fns/shortcode.netmind-text.php' );
 require_once( 'lib/fns/translations.php' );
 require_once( 'lib/fns/woocommerce.php' );
-
 
 /**
  * Enhanced logging.
